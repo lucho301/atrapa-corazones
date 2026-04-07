@@ -1,0 +1,114 @@
+:root {
+  font-family: system-ui;
+  font-variant-numeric: tabular-nums;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #FAE3E3;
+}
+
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-container {
+  position: relative;
+  width: 95vw;
+  max-width: 462px;
+}
+
+.frame {
+  border: 6px solid #B22222;
+  border-radius: 16px;
+  background: #B22222;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  line-height: 0;
+}
+
+#game {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  user-select: none;
+}
+
+#start-screen {
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(253, 236, 236, 0), rgba(253, 236, 236, 0)), url('fondo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+#start-screen h1 {
+  color: crimson;
+  text-shadow: 1px 1px 2px white;
+  font-size: 2.5em;
+  text-align: center;
+  margin: 0 20px 20px 20px;
+}
+
+.game-btn {
+  font-family: 'Courier', monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  background-color: crimson;
+  border: 3px solid #A4243B;
+  border-radius: 12px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.game-btn:hover,
+.game-btn:focus {
+  background-color: crimson;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.game-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#restart-game-button {
+  margin-top: 20px;
+}
+
+.heart { cursor: pointer; }
+.heart__wings { animation: wings-flapping linear infinite 0.4s; transform-origin: 50% 50%; pointer-events: none; }
+.heart__eyes { animation: blink linear infinite 3s; transform-origin: center; }
+@keyframes wings-flapping { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.6); } }
+@keyframes blink { 0%, 90% { transform: scaleY(1); } 95%, 100% { transform: scaleY(0.1); } }
+
+@media (max-width: 480px) {
+  #start-screen h1 { font-size: 2em; }
+  .game-btn { font-size: 1.2em; padding: 12px 25px; }
+  #game text { font-size: 24px; }
+  #win-message { font-size: 28px !important; }
+  #game-over-screen text { font-size: 32px; }
+  #final-score-info { font-size: 20px; }
+}
